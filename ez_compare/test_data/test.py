@@ -1,4 +1,4 @@
-from core import TextCompare
+from ez_compare.core import TextCompare
 
 
 def generate_compare_result():

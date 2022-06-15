@@ -1,0 +1,10 @@
+setup.cfg
+setup.py
+ez_compare/__init__.py
+ez_compare/core.py
+ez_compare/example.py
+ez_compare.egg-info/PKG-INFO
+ez_compare.egg-info/SOURCES.txt
+ez_compare.egg-info/dependency_links.txt
+ez_compare.egg-info/requires.txt
+ez_compare.egg-info/top_level.txt
