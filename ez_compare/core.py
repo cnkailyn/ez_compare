@@ -121,7 +121,6 @@ class TextCompare(object):
         i = 0
         while i < len(diff):
             item = diff[i]
-            print(item)
             if item[1] == "":
                 i += 1
                 continue
