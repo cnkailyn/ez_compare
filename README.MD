@@ -8,7 +8,7 @@
 
 ## Install
 ```commandline
-pip install ez_compare
+pip install ez-compare
 ```
 
 ## Usage
