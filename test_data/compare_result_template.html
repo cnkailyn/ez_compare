@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compare</title>
+</head>
+<body>
+<div style="width: 100%">
+    <button onclick="scrollDiff('<')">Previous Diff</button>
+    <button onclick="scrollDiff('>')">Next Diff</button>
+    <hr>
+</div>
+<div style="width: 50%; float: left">
+    {left}
+</div>
+<div style="width: 50%: float: right">
+    {right}
+</div>
+</body>
+<script>
+  let compareDiffIds = {compare_diff_ids};
+  let curScrollLineIndex = 0;
+
+  function scrollDiff(direction= '>') {
+
+    if (compareDiffIds.length === 0) {
+      return;
+    }
+    if (direction === '>') {
+      curScrollLineIndex += 1;
+    } else {
+      curScrollLineIndex -= 1;
+    }
+
+    if (curScrollLineIndex >= compareDiffIds.length) {
+      curScrollLineIndex = 0;
+    }
+    if (curScrollLineIndex < 0) {
+      curScrollLineIndex = compareDiffIds.length - 1;
+    }
+
+    document.getElementById(compareDiffIds[curScrollLineIndex]).scrollIntoView({block: "center"});
+    let background = document.getElementById(compareDiffIds[curScrollLineIndex]).style.color;
+
+    document.getElementById(compareDiffIds[curScrollLineIndex]).style.border = '1px solid ' + background;
+
+    // clear previous style
+    if (curScrollLineIndex - 1 < 0) {
+      document.getElementById(compareDiffIds[compareDiffIds.length - 1]).style.border = '';
+    } else{
+      document.getElementById(compareDiffIds[curScrollLineIndex - 1]).style.border = '';
+    }
+    if (curScrollLineIndex + 1 >= compareDiffIds.length) {
+      document.getElementById(compareDiffIds[0]).style.border = '';
+    } else{
+      document.getElementById(compareDiffIds[curScrollLineIndex + 1]).style.border = '';
+    }
+
+  }
+
+</script>
+</html>
