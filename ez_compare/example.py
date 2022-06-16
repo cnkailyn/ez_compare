@@ -1,7 +1,11 @@
-from core import TextCompare
+from core import TextCompare, SimpleHtmlTag
 
 
 def generate_compare_result():
+    # you can change the default html color
+    # SimpleHtmlTag.Color.ChangedColor = ("background color", "front color")
+    # SimpleHtmlTag.Color.AddedColor = ("background color", "front color")
+    # SimpleHtmlTag.Color.DeletedColor = ("background color", "front color")
     result = TextCompare.compare("test_data/old.txt", "test_data/new.txt")
     with open("test_data/compare_result_template.html", "r", encoding="utf-8") as template:
         result = template.read().replace(

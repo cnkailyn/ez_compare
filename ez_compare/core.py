@@ -4,6 +4,11 @@ import os
 
 
 class SimpleHtmlTag(object):
+    class Color(object):
+        ChangedColor = ("#f0f9fe", "#009df6")
+        DeletedColor = ("#fff5f8", "#f1416c")
+        AddedColor = ("#e8fff3", "#50cd89")
+
     class Tag(object):
         def __init__(self, tag_name: str, text: str, style=None, id_=None):
             self.id = id_
@@ -21,26 +26,29 @@ class SimpleHtmlTag(object):
     def is_same_tag(cls, tag1: Tag, tag2: Tag):
         return tag1.tag == tag2.tag and tag1.style == tag2.style and tag1.id == tag2.id
 
-    @staticmethod
-    def gen_changed_tag(s: str, id_=None) -> Tag:
+    @classmethod
+    def gen_changed_tag(cls, s: str, id_=None) -> Tag:
         """
         blue
         """
-        return SimpleHtmlTag.Tag("span", s, "background-color: #f0f9fe; color: #009df6", id_)
+        color = cls.Color.ChangedColor
+        return SimpleHtmlTag.Tag("span", s, f"background-color: {color[0]}; color: {color[1]}", id_)
 
-    @staticmethod
-    def gen_deleted_tag(s: str, id_=None) -> Tag:
+    @classmethod
+    def gen_deleted_tag(cls, s: str, id_=None) -> Tag:
         """
         red
         """
-        return SimpleHtmlTag.Tag("del", s, "background-color: #fff5f8; color: #f1416c", id_)
+        color = cls.Color.DeletedColor
+        return SimpleHtmlTag.Tag("del", s, f"background-color: {color[0]}; color: {color[1]}", id_)
 
-    @staticmethod
-    def gen_new_added_tag(s: str, id_=None) -> Tag:
+    @classmethod
+    def gen_new_added_tag(cls, s: str, id_=None) -> Tag:
         """
         green
         """
-        return SimpleHtmlTag.Tag("span", s, "background-color: #e8fff3; color: #50cd89", id_)
+        color = cls.Color.AddedColor
+        return SimpleHtmlTag.Tag("span", s, f"background-color: {color[0]}; color: {color[1]}", id_)
 
     @staticmethod
     def gen_normal_tag(s: str) -> Tag:

@@ -5,7 +5,7 @@ with open("README.MD", "r") as fh:
 
 setuptools.setup(
     name="ez_compare",
-    version="0.1",
+    version="0.2",
     author="kailyn",
     author_email="cnkailyn@gmail.com",
     description="Easily to compare two text",
