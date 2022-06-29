@@ -1,6 +1,7 @@
 # Easy Compare
-> Easy to compare two text or text file by google's 'diff_match_patch' lib.
-> By this, you can easily to make a Human readable result in html.
+> A text compare lib based google's 'diff_match_patch' lib.
+> By this, you can easily to make a Human readable result in html. 
+> And you can click 'next diff' button easily to see the next difference.
 
 ## Compare Result Example
 ![example img](https://user-images.githubusercontent.com/34443073/173779126-b0c86330-e239-4842-8553-5a1ad1eb61a4.png)
